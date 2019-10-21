@@ -11,7 +11,7 @@ var options = {
     }
   }
 }           
-mongoose.connect('mongodb://user:password@ds239071.mlab.com:39071/mymovizapp', options, function (err) {
+mongoose.connect('mongodb://master:master123456@ds239071.mlab.com:39071/mymovizapp', options, function (err) {
   console.log(err)
 })
 
@@ -27,7 +27,7 @@ router.get('/', function (req, res, next) {
 // LIRE L'INTEGRALITE DES FILMS 
 // // On fait un JSON.PARSE pour convertir au format JSON le format de retour de l'API.
 router.get('/movie', function (req, res, next) {
-  request('https://api.themoviedb.org/3/discover/movie?api_key=...&language=fr-FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1', function (error, response, body) {
+  request('https://api.themoviedb.org/3/discover/movie?api_key=36f09c5829bbd3c101393bcd5fa8692b&language=fr-FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1', function (error, response, body) {
     body = JSON.parse(body)
     res.json(body)
   })
